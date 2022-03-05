@@ -1,0 +1,10 @@
+*.css
+*.json
+*.js
+.obsidian/
+.obsidian/*
+vizualizer/*
+vizualizer/
+*.md
+*.json
+*.functionality
