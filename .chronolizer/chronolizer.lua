@@ -52,7 +52,7 @@ function listVizualizer()
 end
 
 function separateName(name)
-  local formating = '([(])(.-)(-)(.-)([)])(.-).md'
+  local formating = '([(])(.-)(_)(.-)([)])(.-).md'
   _,_,par1,born,hyphen,die,par2,name = string.find(name,formating)
   if born == "!" then
     born = time
@@ -61,6 +61,14 @@ function separateName(name)
     die = time
   end
   out = {tonumber(born),tonumber(die),name}
+  if debugmode then
+    print(par1)
+    print(born)
+    print(hyphen)
+    print(die)
+    print(par2)
+    print(name)
+  end
   return out
 end
 
