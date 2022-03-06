@@ -42,7 +42,7 @@ function listMarkdowns()
 end
 
 function listVizualizer()
-  local fileObject = io.popen('dir  ..\\vizualizer\\*.md /b')
+  local fileObject = io.popen('dir  ..\\chronolizer\\*.md /b')
   local fileList,indexer = {}, 0
   for file in fileObject:lines() do
     indexer = indexer + 1
@@ -88,7 +88,7 @@ end
 function decidirEditar(listNames)
   for i,filename in pairs(listNames) do
     local infoFile = separateName(filename)
-    local fileViz = "../vizualizer/"..infoFile[3]..".md"
+    local fileViz = "../chronolizer/"..infoFile[3]..".md"
     if debugmode then print(infoFile[1],infoFile[2],infoFile[3]) end
     if checkInterval(infoFile[1],infoFile[2],time) then
       _adicionareEditar(filename,infoFile,fileViz)
@@ -108,7 +108,7 @@ function _adicionareEditar(filename,infoFile,fileViz) --TODO: usar lista
 end
 
 function _removereEditar(filename) --TODO: usar lista
-  local fileViz = "../vizualizer/"..filename
+  local fileViz = "../chronolizer/"..filename
   if checkFile(fileViz) then
     os.remove(filename)
   end
@@ -125,7 +125,7 @@ function createMarkdownsDebugger()
     for j=1,math.random(1,3) do
       mdTexto = mdTexto..'[[teste'..(math.random(1,i))..']]'..'\n'
     end
-    local teste = io.open('../vizualizer/teste'..i..'.md',"w")
+    local teste = io.open('../chronolizer/teste'..i..'.md',"w")
     io.output(teste):write(mdTexto)
     io.close(teste)
   end
